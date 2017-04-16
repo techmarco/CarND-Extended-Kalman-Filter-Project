@@ -38,7 +38,7 @@ FusionEKF::FusionEKF() {
   //state vector
   VectorXd x_ = VectorXd(4);
 
-  //state covarience matrix
+  //state covariance matrix
   MatrixXd P_ = MatrixXd(4, 4);
   P_ << 1, 0, 0, 0,
         0, 1, 0, 0,
