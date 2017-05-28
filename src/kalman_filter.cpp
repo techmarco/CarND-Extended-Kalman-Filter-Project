@@ -62,6 +62,12 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
 
   //perform measurement update
   VectorXd y = z - h;
+
+  //angle normalization
+  while(y(1) > M_PI) {
+    y(1) -= 2*M_PI;
+  }
+
   MatrixXd Hj = tools.CalculateJacobian(x_);
   MatrixXd Ht = Hj.transpose();
   MatrixXd S = Hj * P_ * Ht + R_;
